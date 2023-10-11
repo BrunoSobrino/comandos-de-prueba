@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta property="og:image" content="https://github.com/BrunoSobrino.png">
+    <title>API | BrunoSobrino</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://wallpapercave.com/wp/wp9052724.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-image: url('https://cdn.donmai.us/original/46/af/46af946c26c9f6d6dd0d9e632f2c0902.jpg');
+            }
+
+            .welcome-box {
+                padding: 10px;
+            }
+
+            .neon-text {
+                font-size: 24px; 
+                white-space: nowrap; 
+            }
+
+            .redirect-button {
+                padding: 5px 15px; 
+                top: calc(50% + 20px);
+            }
+        }
+
+        #menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 250px;
+            height: 100%;
+            transition: right 0.3s;
+            background-color: #333;
+            color: #fff;
+            z-index: 2;
+            overflow-y: auto;
+        }
+
+        #menu.active {
+            right: 0;
+        }
+
+        #menu-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 3;
+            transition: right 0.3s;
+        }
+
+        #menu-button.active {
+            right: 280px;
+        }
+
+        .welcome-box {
+            padding: 20px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .neon-text {
+            font-size: 36px;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00, 0 0 60px #00ff00, 0 0 70px #00ff00;
+        }
+
+        .redirect-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: calc(50% + 40px); 
+        }
+
+        /* Estilos para el reproductor de audio en el menú */
+        #audio-player-container {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        #audio-player-menu {
+            width: 100%;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="docs">Documentación</a></li>
+            <li><a href="contact">Contacto</a></li>
+        </ul>
+    </div>
+    
+    <div id="content">
+        <img id="menu-button" src="https://github.com/BrunoSobrino.png" alt="Menú" width="40" height="40">
+    </div>
+
+    <div class="welcome-box">
+        <h2 class="neon-text">Bienvenido a Mi API</h2>
+        <button class="redirect-button" id="docs-button">Documentación</button>
+    </div>
+
+    <script>
+        const baseurl = window.location.origin;
+        const docsButton = document.getElementById('docs-button');
+        docsButton.addEventListener('click', function () {
+            window.location.href = `${baseurl}/docs`;
+        });
+
+        const menuButton = document.getElementById('menu-button');
+        const menu = document.getElementById('menu');
+
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            menuButton.classList.toggle('active');
+        });
+    </script>
+ </body>
+</html>
